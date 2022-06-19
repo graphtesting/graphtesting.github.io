@@ -99,12 +99,9 @@ const data = [
   },
 ];
 
-export default () => {
+export default ({ addToUserCollection, history }) => {
   const [regions, setRegions] = useState<any>(data);
-
-  useEffect(() => {
-    console.log(regions);
-  }, [regions]);
+  const [userCollection, setUserCollection] = useState('');
 
   const [addFormData, setAddFormData] = useState({
     name: '',
@@ -220,8 +217,31 @@ export default () => {
     setRegions(newRegions);
   };
 
+  const saveToUserCollection = event => {
+    event.preventDefault();
+    addToUserCollection(userCollection, [userCollection, ...regions]);
+  };
+
   return (
     <div className="table-container">
+      <h2>Your History</h2>
+      <div>
+        {history &&
+          [...history].map(h => {
+            return (
+              <button
+                key={JSON.stringify(h)}
+                onClick={() => {
+                  console.log(regions);
+                  console.log(h.collectionData.slice(1));
+                  const newRegions = [...h.collectionData];
+                  setRegions(newRegions.slice(1));
+                }}>
+                {JSON.stringify(h.collectionData[0])}
+              </button>
+            );
+          })}
+      </div>
       <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
@@ -237,7 +257,7 @@ export default () => {
           </thead>
           <tbody>
             {regions.map(reg => (
-              <Fragment>
+              <Fragment key={JSON.stringify(reg)}>
                 {editRegionId === reg.id ? (
                   <EditableRow
                     editFormData={editFormData}
@@ -256,7 +276,6 @@ export default () => {
           </tbody>
         </table>
       </form>
-
       <h2>Add a Region</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input
@@ -307,6 +326,17 @@ export default () => {
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
+      </form>
+      <h2>Add to my history</h2>
+      <form onSubmit={saveToUserCollection}>
+        <input
+          type="text"
+          name="territory"
+          required
+          placeholder="territory"
+          onChange={e => setUserCollection(e.target.value)}
+        />
+        <button type="submit">Save to my history</button>
       </form>
       <Charts data={regions} />
     </div>

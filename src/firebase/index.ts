@@ -44,6 +44,7 @@ const signInWithGoogle = async () => {
         name: user.displayName,
         authProvider: 'google',
         email: user.email,
+        savedData: [],
       });
     }
   } catch (err) {
@@ -74,6 +75,7 @@ const registerWithEmailAndPassword = async (
       name,
       authProvider: 'local',
       email,
+      savedData: [],
     });
   } catch (err) {
     console.error(err);
