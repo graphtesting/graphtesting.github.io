@@ -121,7 +121,7 @@ export default ({ data }) => {
       .sort((a, b) => b[1] + b[2] - (a[1] + a[2])),
   ];
   const polutionPerCapita = [
-    ['Region', 'Kg per citizen per year'],
+    ['Region', 'Tonn per citizen per year'],
     ...[...data]
       .map(region => [
         region.name,
@@ -131,7 +131,7 @@ export default ({ data }) => {
       .sort((a, b) => b[1] - a[1]),
   ];
   const polutionPerSqKm = [
-    ['Region', 'Kg per km²'],
+    ['Region', 'Tonn per km²'],
     ...[...data]
       .map(region => [
         region.name,
@@ -197,7 +197,7 @@ export default ({ data }) => {
         options={{
           title:
             'Обсяги викидів шкідливих речовин в атмосферне повітря за областями і містами України ',
-          chartArea: { width: '50%' },
+          chartArea: { width: '70%' },
           isStacked: true,
           hAxis: {
             minValue: 0,
@@ -220,7 +220,7 @@ export default ({ data }) => {
           options={{
             title:
               'Обсяги викидів шкідливих речовин в атмосферне повітря від стаціонарних джерел за областями і містами України ',
-            chartArea: { width: '50%' },
+            chartArea: { width: '70%' },
             colors: ['darkred'],
             hAxis: {
               minValue: 0,
@@ -246,7 +246,7 @@ export default ({ data }) => {
           options={{
             title:
               'Обсяги викидів шкідливих речовин в атмосферне повітря від пересувних джерел за областями і містами України ',
-            chartArea: { width: '50%' },
+            chartArea: { width: '70%' },
             colors: ['darkorange'],
             hAxis: {
               minValue: 0,
@@ -271,7 +271,7 @@ export default ({ data }) => {
         options={{
           title:
             'Обсяги викидів шкідливих речовин в атмосферне повітря на душу населення за областями і містами України ',
-          chartArea: { width: '50%' },
+          chartArea: { width: '70%' },
           isStacked: true,
           hAxis: {
             minValue: 0,
@@ -295,8 +295,9 @@ export default ({ data }) => {
         options={{
           title:
             'Обсяги викидів шкідливих речовин в атмосферне повітря на km² за областями і містами України ',
-          chartArea: { width: '50%' },
+          chartArea: { width: '70%' },
           isStacked: true,
+          colors: ['darkgreen'],
           hAxis: {
             minValue: 0,
           },

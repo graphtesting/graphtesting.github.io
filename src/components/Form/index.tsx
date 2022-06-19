@@ -97,8 +97,133 @@ const data = [
     population: '1027.0',
     territory: '24.6',
   },
+  {
+    id: 'L01UjUw_ot1L_UqnupeL1',
+    name: 'Луганська',
+    totalAmount: '662,5',
+    stationary: '566.3',
+    mobile: '96.2',
+    population: '2331.8',
+    territory: '26.7',
+  },
+  {
+    id: 'pZrRsjsn6CRftIlK6rh6w',
+    name: 'Львівська',
+    totalAmount: '266,8',
+    stationary: '126.4',
+    mobile: '140.4',
+    population: '2552.9',
+    territory: '21.8',
+  },
+  {
+    id: 'fSYds2LUI3bRBrNaDoHDQ',
+    name: 'Миколаївська',
+    totalAmount: '89,6',
+    stationary: '25.8',
+    mobile: '63.8',
+    population: '1195.8',
+    territory: '24.6',
+  },
+  {
+    id: 'M4hYyJH0Fg1ayuEgGCmze',
+    name: 'Одеська',
+    totalAmount: '192,2',
+    stationary: '34.4',
+    mobile: '157.8',
+    population: '2392.2',
+    territory: '33.3',
+  },
+  {
+    id: 'OCQ9Cl8pdwW3ieCqP5TfN',
+    name: 'Полтавська',
+    totalAmount: '202,2',
+    stationary: '93.4',
+    mobile: '108.8',
+    population: '1511.4',
+    territory: '28.8',
+  },
+  {
+    id: 'E6NfWPinEcumgeDWTodNE',
+    name: 'Рівненська',
+    totalAmount: '61,5',
+    stationary: '16.2',
+    mobile: '45.3',
+    population: '1151.0',
+    territory: '20.1',
+  },
+  {
+    id: 'JiIvi4XxLgRJelKEEuyen',
+    name: 'Сумська',
+    totalAmount: '87,4',
+    stationary: '29.7',
+    mobile: '57.7',
+    population: '1184.0',
+    territory: '23.8',
+  },
+  {
+    id: 'O82iAwtSFfZx3GJ5tTMQ7',
+    name: 'Харківська',
+    totalAmount: '310,4',
+    stationary: '173.1',
+    mobile: '137.3',
+    population: '2782.4',
+    territory: '31.4',
+  },
+  {
+    id: '-2c50Y4kJpgOdqFO7XAQb',
+    name: 'Херсонська',
+    totalAmount: '84,0',
+    stationary: '11.9',
+    mobile: '72.1',
+    population: '1099.2',
+    territory: '28.5',
+  },
+  {
+    id: 'aHlMbJObNJVsNevnYuQZ-',
+    name: 'Хмельницька',
+    totalAmount: '92,1',
+    stationary: '24.5',
+    mobile: '67.6',
+    population: '1341.4',
+    territory: '20.6',
+  },
+  {
+    id: 'jllesHvL0l5nlClaPkSO2',
+    name: 'Черкаська',
+    totalAmount: '124,0',
+    stationary: '43.2',
+    mobile: '80.8',
+    population: '1304.3',
+    territory: '20.9',
+  },
+  {
+    id: '70Dw3wvvc4dToMyucO3wE',
+    name: 'Чернівецька',
+    totalAmount: '43,3',
+    stationary: '3.9',
+    mobile: '39.4',
+    population: '904.1',
+    territory: '8.1',
+  },
+  {
+    id: 'JjxAQ9rpuMFpMj1F0DITn',
+    name: 'Чернігівська',
+    totalAmount: '98,1',
+    stationary: '44.4',
+    mobile: '53.7',
+    population: '1121.3',
+    territory: '31.9',
+  },
+  {
+    id: 'xOCFScTTGz_RSTkiDKe4W',
+    name: 'Київ',
+    totalAmount: '275,2',
+    stationary: '27.0',
+    mobile: '248.2',
+    population: '2765.5',
+    territory: '0.8',
+  },
 ];
-
 export default ({ addToUserCollection, history }) => {
   const [regions, setRegions] = useState<any>(data);
   const [userCollection, setUserCollection] = useState('');
@@ -160,6 +285,7 @@ export default ({ addToUserCollection, history }) => {
     };
 
     const newRegions = [...regions, newRegion];
+    console.log(newRegions);
     setRegions(newRegions);
   };
 
@@ -331,9 +457,9 @@ export default ({ addToUserCollection, history }) => {
       <form onSubmit={saveToUserCollection}>
         <input
           type="text"
-          name="territory"
+          name="name"
           required
-          placeholder="territory"
+          placeholder="name"
           onChange={e => setUserCollection(e.target.value)}
         />
         <button type="submit">Save to my history</button>
